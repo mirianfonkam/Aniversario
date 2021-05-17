@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Seu Aniversário</string>
+    <string name="date_text">ENVIAR DATA</string>
+    <string name="date_hint">DD/MM/AAAA</string>
+    <string name="enviar">Enviar</string>
+    <string name="nome">Nome:</string>
+    <string name="presente">O que gostaria de ganhar de aniversário?</string>
+    <string name="presente_hint">Digite o nome do presente</string>
+    <string name="data_de_nascimento">Data de Nascimento:</string>
+    <string name="nome_hint">Digite seu nome</string>
+</resources>
