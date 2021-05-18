@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var birthday : String
+    lateinit var dateOfBirth : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +36,22 @@ class MainActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
-
-
         btn.setOnClickListener {
-            birthday = inDate.text.toString()
+            dateOfBirth = inDate.text.toString()
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            val dob = LocalDate.parse(birthday, formatter)
+            val dob = LocalDate.parse(dateOfBirth, formatter)
             val today = LocalDate.now()
-            val diffInDays = ChronoUnit.DAYS.between(dob,today)
+            val age = ChronoUnit.YEARS.between(dob, today)
+
+            var nextBirthday = LocalDate.of(today.year, dob.month, dob.dayOfMonth)
+
+            if (nextBirthday < today) {
+                //aniversario ja passou
+                nextBirthday = nextBirthday.plusYears(1)
+            }
+
+            val diffInDays = ChronoUnit.DAYS.between(today, nextBirthday)
+
 
             val usuario = inName?.text
             //val xDias = diffInDays?.toString()
@@ -54,6 +62,16 @@ class MainActivity : AppCompatActivity() {
                     "faltam $diffInDays dias para o seu aniversário!\n" +
                     "Espero que você ganhe um ${presente}", Toast.LENGTH_LONG
             ).show()
+
+
+
+            // Issues #1 Handling Wrong User Input e.g "" or " ", or dates that are greater than the current date
+            // Issues #2 User has birthday has passed
+            // Issued #3 Handling horizontal view//scroll feature
+
+            // Feature #1 coleção a string que retorna informando nome, dias restantes para o aniversário da pessoa bem como presente esperado.
+
+
         }
 
     }
