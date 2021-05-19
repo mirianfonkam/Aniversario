@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Aniversario">
+        <activity
+            android:name=".ScrollingUsers"
+            android:label="@string/title_activity_scrolling_users"
+            android:theme="@style/Theme.Aniversario.NoActionBar">
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
