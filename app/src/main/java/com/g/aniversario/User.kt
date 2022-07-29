@@ -2,7 +2,7 @@ package com.g.aniversario
 
 class User {
     var name = ""
-    var daysUntilBday = 0
+    var daysUntilBirthday = 0
     var presente = ""
     //class variables
     var numberofusers = 0
@@ -13,13 +13,13 @@ class User {
 
     constructor(nm: String, dub: Long, presente: String){
         this.name = nm
-        this.daysUntilBday = dub.toInt()
+        this.daysUntilBirthday = dub.toInt()
         this.presente = presente
     }
 
     override fun toString(): String {
         return "Nome: ${this.name}\n" +
-                "Dias para o aniversário: ${this.daysUntilBday}" +
+                "Dias para o aniversário: ${this.daysUntilBirthday}" +
                 "\nPresente esperado: ${this.presente}"
     }
 }
